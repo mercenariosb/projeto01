@@ -45,7 +45,7 @@ def jogar_forca():
         else:
             print(f"A palavra secreta não contém a letra {palpite}!")
             tentativas -= 1
-            print(visual_dict[tentativas])  # adicione um visual e numere cada parte dele, como tem 7 tentativas crie 7 visuais.
+            print(visual_dict[tentativas])  # crie um visual e numere cada parte dele, como tem 7 tentativas crie 7 visuais.
 
         palpites.add(palpite)
 

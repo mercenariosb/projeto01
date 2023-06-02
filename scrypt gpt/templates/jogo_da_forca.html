@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Forca</title>
+    <!-- Importar os arquivos CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Incluir o CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Incluir o JavaScript do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNS15U6"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Jogo da Forca</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Exibir a imagem da forca -->
+                <img src="{{ url_for('static', filename='img/forca_0.png') }}" alt="Forca">
+            </div>
+            <div class="col-md-6">
+                <h2>Palavra secreta:</h2>
+                <p>{{ palavra_atual }}</p>
+                <h2>Letras erradas:</h2>
+                <p>{{ letras_erradas }}</p>
+                <h2>Tentativas restantes:</h2>
+                <p>{{ tentativas }}</p>
+                <form method="POST" action="{{ url_for('jogo_da_forca') }}">
+                    <div class="form-group">
+                        <label for="letra">Digite uma letra:</label>
+                        <input type="text" class="form-control" id="letra" name="letra" maxlength="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <h1>Adicionar Palavra</h1>
+    <form action="/adicionar_palavra" method="post">
+        <label for="palavra">Nova Palavra:</label>
+        <input type="text" id="palavra" name="palavra" required>
+        <br><br>
+        <input type="submit" value="Adicionar">
+    </form>
+    
+    <!-- Importar os arquivos JavaScript do Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
